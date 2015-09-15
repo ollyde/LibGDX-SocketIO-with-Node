@@ -6,6 +6,9 @@
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="22" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -13,7 +16,7 @@
         android:theme="@style/GdxTheme" >
         <activity
             android:name="com.mygdx.game.android.AndroidLauncher"
-            android:label="@string/app_name" 
+            android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
             <intent-filter>
