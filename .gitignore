@@ -29,6 +29,9 @@ android/gen/
 out/
 com_crashlytics_export_strings.xml
 
+## Ignore NPM stuff
+server/npm_modules
+
 ## Eclipse
 .classpath
 .project
