@@ -9,7 +9,7 @@
 
 ## App setup
 1. In 'sockettest/core/src/com/mygdx/game/SocketTest.java' change the direction the socket points to, so point it to you're local
-IP from you're router, ie 192.168.1.11 << YOU'RE IP.
+IP from you're router, ie **192.168.1.11 << YOU'RE IP**
 2. Setup as applicaiton for desktop, make sure assets points towards 'android/assets'. Then select desktop module.
 
 Android should just run if you're using Android Studio.
