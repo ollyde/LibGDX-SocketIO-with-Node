@@ -36,20 +36,31 @@ public class SocketEngineIO extends ApplicationAdapter
                 {
                     try
                     {
-                        log("Beginning connection with SocketIO server.");
+                        log("Beginning connection with EngineIO server.");
 
-                        //TODO Replace with you're local host IP on the router.
-                        //socket = IO.socket("http://127.0.0.1:3001");
                         socket = new Socket("http://127.0.0.1:3001");
 
-                        socket = new Socket("ws://localhost");
                         socket.on(Socket.EVENT_OPEN, new Emitter.Listener() {
                             @Override
                             public void call(Object... args) {
                                 socket.send("hi");
-                                socket.close();
+                                System.out.println("Sent Hi");
                             }
                         });
+                        socket.on(Socket.EVENT_MESSAGE, new Emitter.Listener() {
+                            @Override
+                            public void call(Object... args) {
+                                String data = (String)args[0];
+                                System.out.println("Sent Hi");
+                            }
+                        }).on(Socket.EVENT_ERROR, new Emitter.Listener() {
+                            @Override
+                            public void call(Object... args) {
+                                Exception err = (Exception) args[0];
+                                err.printStackTrace();
+                            }
+                        });
+
                         socket.open();
 
                     }
