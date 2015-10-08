@@ -4,8 +4,8 @@ buildscript {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-        classpath 'org.robovm:robovm-gradle-plugin:1.6.0'
+        classpath 'com.android.tools.build:gradle:1.3.0'
+        classpath 'org.robovm:robovm-gradle-plugin:1.8.0'
     }
 }
 
@@ -16,8 +16,8 @@ allprojects {
     version = '1.0'
     ext {
         appName = "SocketIOTest"
-        gdxVersion = '1.6.5'
-        roboVMVersion = '1.6.0'
+        gdxVersion = '1.7.0'
+        roboVMVersion = '1.8.0'
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.6.0'
         aiVersion = '1.5.0'
@@ -83,7 +83,9 @@ project(":core") {
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+
         compile 'io.socket:socket.io-client:0.6.1'
+        compile 'io.socket:engine.io-client:0.6.1'
     }
 }
 

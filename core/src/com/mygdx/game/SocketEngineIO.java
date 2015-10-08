@@ -7,11 +7,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 
-import io.socket.client.Socket;
-import io.socket.client.IO;
 import io.socket.emitter.Emitter;
+import io.socket.engineio.client.Socket;
 
-public class SocketTest extends ApplicationAdapter
+public class SocketEngineIO extends ApplicationAdapter
 {
 	private SpriteBatch batch;
     private int sentItems = 0;
@@ -31,6 +30,8 @@ public class SocketTest extends ApplicationAdapter
             @Override
             public boolean tap(float x, float y, int count, int button)
             {
+                //Tap the screen to send messages.
+
                 if(socket == null)
                 {
                     try
@@ -39,26 +40,18 @@ public class SocketTest extends ApplicationAdapter
 
                         //TODO Replace with you're local host IP on the router.
                         //socket = IO.socket("http://127.0.0.1:3001");
-                        socket = IO.socket("http://192.168.1.11:3001");
+                        socket = new Socket("http://127.0.0.1:3001");
 
-                        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
-
+                        socket = new Socket("ws://localhost");
+                        socket.on(Socket.EVENT_OPEN, new Emitter.Listener() {
                             @Override
                             public void call(Object... args) {
-                                log("Connected with server.");
-                                socket.emit("test", "Hi, we connected!");
+                                socket.send("hi");
+                                socket.close();
                             }
-                        })
-                        .on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
-
-                            @Override
-                            public void call(Object... args) {
-                                socket = null;
-                            }
-
                         });
+                        socket.open();
 
-                        socket.connect();
                     }
                     catch (Exception exception)
                     {
