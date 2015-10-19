@@ -1,11 +1,11 @@
 # LibGDX-SocketIO-with-Node
 
 ## To install and run node.
-1. change directoy to the server folder.
+1. Change directoy to the server folder.
 2. Make sure you have Node JS installed.
-3. in terminal in the server directory type 'npm install'
-4. same place type 'node server.js' OR if you are using nodeman 'nodeman server'.
-5. success.
+3. Terminal, 'npm install'
+4. Terminal, node server.js
+5. Success.
 
 ## App setup
 1. In 'sockettest/core/src/com/mygdx/game/SocketTest.java' change the direction the socket points to, so point it to you're local
